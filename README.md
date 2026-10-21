@@ -1,2 +1,5 @@
-# eaglers-awesome-stuff
-The eaglers have made awesome games and threw it into a page. have fun. -h.r.e.s. student
+so basically i am "timmy" and i just want my favorite games on a page. 
+if i make one, problem solved!
+things on here: five nights at winstons
+OvO
+and mores!
