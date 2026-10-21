@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcade Alley</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #101329;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #191e3a;
+      border-radius: 16px;
+    }
+
+    h1 { color: #a995ff; }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: #191e3a;
+      border: 1px solid #353c62;
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    button {
+      background: #8d72ff;
+      color: white;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #player {
+      display: none;
+      margin-top: 25px;
+    }
+
+    #gameframe {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #353c62;
+      border-radius: 12px;
+      background: black;
+    }
+
+    .note { color: #b7bdd9; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>eaglers awesome stuff</h1>
+    <p>keep ts niche</p>
+    <p class="note">choose a game and play it here</p>
+  </header>
+
+  <main class="games">
+    <section class="card">
+      <h2>Five Nights at Winston's</h2>
+      <p>credits to lax1dude, fnaf ripoff.</p>
+      <button onclick="playGame('https://g.lax1dude.net/fnaw/')">
+        Play here
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>Eaglercraft</h2>
+      <p>credit to lax1dude, this is a minecraft ripoff</p>
+      <button onclick="playGame('https://g.deev.is/eaglercraft/')">
+        Play here
+      </button>
+    </section>
+  </main>
+
+  <section id="player">
+    <h2 id="gameTitle">Game player</h2>
+    <p class="note" id="status">
+      if the game doesn't load, its website may block embedding.
+    </p>
+    <iframe
+      id="gameframe"
+      title="Arcade Alley game"
+      allowfullscreen>
+    </iframe>
+    <p>
+      <button onclick="closeGame()">Close game</button>
+      <button onclick="openOriginal()">Open original website</button>
+    </p>
+  </section>
+
+  <script>
+    let currentUrl = "";
+
+    function playGame(url) {
+      currentUrl = url;
+      document.getElementById("player").style.display = "block";
+      document.getElementById("gameframe").src = url;
+      document.getElementById("gameTitle").textContent = "Game player";
+      document.getElementById("status").textContent =
+        "trying to load the game...";
+      document.getElementById("player").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function closeGame() {
+      document.getElementById("gameframe").src = "about:blank";
+      document.getElementById("player").style.display = "none";
+    }
+
+    function openOriginal() {
+      if (currentUrl) window.open(currentUrl, "_blank", "noopener");
+    }
+  </script>
+</body>
+</html>
